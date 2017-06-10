@@ -1,0 +1,10 @@
+{
+  "appName": {
+    "message": "Leopard-Raw种子链接批量获取",
+    "description": "The name of the application"
+  },
+  "appDescription": {
+    "message": "帮助MADER能够更方便地从Leopard-Raw网站上获得种子链接的chrome插件",
+    "description": "The description of the application"
+  }
+}
