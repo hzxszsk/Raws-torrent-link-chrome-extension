@@ -13,18 +13,27 @@
   <body>
     <main>
       <section id="raw-page-content" class="content">
-        <div id="loading-msg" class="loading-msg">正在获取链接中。。。</div>
-        <a href="#" type="button" id="project-github" class="btn">获取链接</a>
+        <div id="link-list-wrap" class="link-list-wrap hide">
+          <div id="link-list-header" class="link-list-header">
+            <label for="select-all"><input type="checkbox" id="select-all" name="select-all">全选/全不选</label>
+          </div>
+          <ul id="link-list" class="link-list">
+              
+          </ul>
+        </div>
+        <p id="state-msg" class="state-msg">正在获取链接中。。。</p>
+        <a id="copy-torrent-links-btn" class="btn hide">获取链接</a>
       </section>
       <section id="not-raw-page-content" class="content">
         <a href="http://zh.leopard-raws.org/" type="button" id="forward-Leopard-Raw" class="btn">前往Leopard-Raw</a>
-        <a href="" type="button" id="project-github" class="btn">项目地址</a>
-        <a href="https://github.com/hzxszsk" type="button" id="author-github" class="btn">作者信息</a>
+        <a href="https://github.com/hzxszsk/Raws-torrent-link-chrome-extension" type="button" id="project-github" class="btn">项目Github地址</a>
+        <a href="https://github.com/hzxszsk" type="button" id="author-github" class="btn">作者Github</a>
       </section>
     </main>
 
     <!-- build:js scripts/popup-vendor.js -->
     <!-- bower:js -->
+    <script src="bower_components/clipboard/dist/clipboard.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

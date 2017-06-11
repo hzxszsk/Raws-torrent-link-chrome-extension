@@ -15,11 +15,14 @@ const $$ = function (selector) {
  */
 function parseLinks() {
   let links = [];
-  let torrents = $('.torrent_name a')
+  let torrents = $$('.torrent_name a');
   torrents.forEach(function (torrent, index) {
     let link = torrent.href;
-    link = basicUrl + link.substring(1);
-    links.push(link);
+    let torrentName = torrent.innerText;
+    links.push({
+      name: torrentName,
+      url: link
+    });
   });
   return links;
 }
@@ -30,15 +33,15 @@ function parseLinks() {
  * @returns {String}
  */
 function getTorrentLinkS() {
-  let links = parseLinks();
-  return links.join('\n') + '\n';
+  let links = parseLinks() || [];
+  return links;
 }
 
 chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
-    if (message === 'getLinks') {
-        let links = getTorrentLinkS();
-        sendResponse({
-            links: links
-        });
-    }
+  if (message && message.type === 'getLinks') {
+    let links = getTorrentLinkS();
+    sendResponse(links);
+  } else {
+    sendResponse('no response');
+  }
 });
